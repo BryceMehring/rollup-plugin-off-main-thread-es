@@ -1,6 +1,6 @@
 {
   "name": "@brycemehring/rollup-plugin-off-main-thread-es",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "description": "Use Rollup with web workers.",
   "main": "index.js",
   "author": "Bryce Mehring <brycemehring@gmail.com>",
