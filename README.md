@@ -32,7 +32,9 @@ export default {
 // rollup.config.js
 export default {
   // ...
-  plugins: [OffMainThread(options)];
+  plugins: [
+    OffMainThread(options),
+  ],
 }
 ```
 
