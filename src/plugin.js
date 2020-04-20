@@ -18,6 +18,10 @@ module.exports = function(opts = {}) {
   return {
     name: "off-main-thread-es",
 
+    resolveFileUrl({fileName}) {
+      return `new URL('${fileName}', document.baseURI).href`;
+    },
+
     async transform(code, id) {
 
       if (!filter(id)) {
@@ -45,6 +49,10 @@ module.exports = function(opts = {}) {
         const workerFile = match[2];
 
         const resolvedWorkerFile = await this.resolve(workerFile, id);
+
+        if (resolvedWorkerFile === null) {
+          throw new Error(`Cannot find module ${workerFile}`);
+        }
 
         const chunkRefId = this.emitFile({
           type: 'chunk',
